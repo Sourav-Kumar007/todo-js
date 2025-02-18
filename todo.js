@@ -14,7 +14,6 @@ function taskAdd() {
 
     li.appendChild(deleteBtn);
     listContainer.appendChild(li);
-    console.log(li);
 
     newTask.value = "";
   }
@@ -28,5 +27,34 @@ listContainer.addEventListener("click", function (e) {
 
 listContainer.addEventListener("click", function (e) {
    e.target.style.color = "green";
-  });
+   e.target.classList.add("completed");
+  }); 
+
+//  function allCompleted()
+//  {
+//     console.log('hello');
+//     for(let e in listContainer)
+//     {
+//         console.log(e.target.value);
+//     }
+//  } 
+function allCompleted() {
+    let tasks = listContainer.getElementsByTagName("li");
+    let completedTasks = [];
+    
+    for (let task of tasks) { 
+        if (task.classList.contains("completed")) { 
+            completedTasks.push(task);
+        }
+    }
+    
+    let newContainer = document.getElementById("all-task");
+    completedTasks.forEach(task => newContainer.appendChild(task));
+
+    newContainer.forEach(task => listContainer.removeChild(task));
+    newContainer.forEach(task => listContainer.appendChild(task));
+}
+
+
+
   
