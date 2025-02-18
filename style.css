@@ -1,0 +1,59 @@
+*{
+    margin : 0;
+    padding : 0;
+}
+
+.container{
+    width : 50%;
+    margin : 10px auto 15px;
+}
+.heading{
+    margin : 0px auto 0px;
+}
+.input-task{
+    margin-top  : 20px;
+    max-width:100%;
+}
+.take-input{
+    width:80%;
+    height: 30px;
+}
+.add-btn{
+    padding:8px 22px;
+    border-radius:2px;
+    background-color: rgb(240, 192, 255);
+}
+
+.listTask {
+    margin-top:20px;
+
+}
+
+.listTask li{
+    width:75%;
+    font-size: 20px;
+    margin-top:5px; 
+    margin-left:20px;
+    list-style: none;
+    user-select : none;
+    cursor: pointer; 
+    list-style-type : circle;
+    border-style: solid;
+
+}
+.done{
+    color : green;
+}
+span{
+    position:absolute;
+    right: 0;
+}
+#deleteBtn{
+    margin-top:20px;
+}
+ul li button{
+    position:relative;
+    margin-left:250px;
+    height : 25px;
+    width:50px;
+}
