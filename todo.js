@@ -42,18 +42,31 @@ function allCompleted() {
     let tasks = listContainer.getElementsByTagName("li");
     let completedTasks = [];
     
-    for (let task of tasks) { 
-        if (task.classList.contains("completed")) { 
-            completedTasks.push(task);
-        }
-    }
+    // for (let task of tasks) { 
+    //     if (task.classList.contains("completed")) { 
+    //         completedTasks.push(task);
+    //     }
+    // }
     
-    let newContainer = document.getElementById("all-task");
-    completedTasks.forEach(task => newContainer.appendChild(task));
+    // let newContainer = document.getElementById("all-task");
+    // completedTasks.forEach(task => newContainer.appendChild(task));
 
-    newContainer.forEach(task => listContainer.removeChild(task));
-    newContainer.forEach(task => listContainer.appendChild(task));
+    // newContainer.forEach(task => listContainer.removeChild(task));
+    // newContainer.forEach(task => listContainer.appendChild(task));
+
+    for(let task of tasks)
+    {
+        if (task.classList.contains("completed")) { 
+                    continue;
+                }
+                else 
+                {
+                    listContainer.removeChild(task);
+                }
+    }
 }
+
+
 
 
 
