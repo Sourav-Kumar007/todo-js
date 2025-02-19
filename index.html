@@ -11,11 +11,18 @@
         <h1 class="heading">Todo App</h1> 
         <div class="input-task">
             <input type="text" id="input-box" placeholder="Enter a new Task" class="take-input">
-            <button class="add-btn" onclick="taskAdd()">Add</button>
+            <button class="add-btn" onclick="taskAdd(1)">Add</button>
         </div>
         <ul id="all-task" class="listTask"></ul> 
 
-        <button onclick="allCompleted()"> All Completed </button>
+        <div id="all-btn">
+            <button onclick="allCompleted()"> All Completed </button>
+        <button onclick="remaining()"> Remaining </button>
+        <button onclick="showAll()"> Show all </button> 
+        <button id="clear" onclick="clearCompleted()"> Clear Completed Task</button>
+        </div>
+       
+        </div>
     </div>
     <script src="todo.js"></script>
 </body>
