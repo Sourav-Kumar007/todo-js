@@ -116,7 +116,7 @@ function taskAdd(f)
     li.setAttribute("id" , `${arrayList[i].id}`);
     if(arrayList[i].marked)
     {
-      li.style.color = "green";
+      li.style.backgroundColor = '#C0E49A';
     }
 
     let deleteBtn = document.createElement("button");
@@ -136,141 +136,13 @@ function taskAdd(f)
         {
           delete arrayList[j];
           break;
-// function taskAdd(f)
-// {
-//   if(f == 1)
-//   {
-//     const newInput = document.getElementById("input-box");
-//   const newTask = Object.create(obj);
-//   if(newInput.value == "")
-//   {
-//     return ;
-//   }
-//   newTask.task = newInput.value ;
-//   newTask.marked = false;
-//   newTask.id = Date.now();
-//   newInput.value = "";
-//   arrayList.push(newTask);
-//   }
-//   const listContainer = document.getElementById("all-task");
-//   listContainer.innerHTML = "";
-//   for(let i=0; i<arrayList.length; i++)
-//   {
-//     if(arrayList[i] === undefined)
-//     {
-//       continue;
-//     }
-
-//     let li = document.createElement("li");
-//     li.innerHTML = arrayList[i].task;
-//     li.setAttribute("id" , `${arrayList[i].id}`);
-//     if(arrayList[i].marked)
-//     {
-//       li.style.color = "green";
-//     }
-
-//     let deleteBtn = document.createElement("button");
-//     deleteBtn.textContent = "Delete";
-//     li.appendChild(deleteBtn);
-//     console.log(arrayList[i].task);
-//     listContainer.appendChild(li);
-
-
-//     li.querySelector("button").addEventListener("click" , remove);
-//     function remove()
-//     {
-//       for(j=0; j<arrayList.length; j++)
-//       {
-//         //console.log(arrayList[j].id , Number(li.getAttribute("id")));
-//         if(arrayList[j].id === Number(li.getAttribute("id")))
-//         {
-//           delete arrayList[j];
-//           break;
-//         }
-//       }
-//       li.remove();
-//     }
-//   }
-//   listContainer.addEventListener("click" , function(e){
-//     e.target.style.color = "green";
-//     for(j=0; j<arrayList.length; j++)
-//       {
-//         //console.log(arrayList[j].id , Number(li.getAttribute("id")));
-//         if(arrayList[j].id === Number(e.target.getAttribute("id")))
-//         {
-//           arrayList[j].marked = true;
-//           break;
-//         }
-//       }
-//   });
-//   //console.log(arrayList);
-// }
-
-// function allCompleted(){
-//   const listContainer = document.getElementById("all-task");
-//   listContainer.innerHTML = "";
-//   for(let i=0; i<arrayList.length; i++)
-//   {
-//     if(arrayList[i] !== undefined && arrayList[i].marked)
-//     {
-//       let li = document.createElement("li");
-//       li.innerHTML = arrayList[i].task;
-//       li.setAttribute("id" , `${arrayList[i].id}`);
-//       li.style.color = "green";
-//       listContainer.appendChild(li);
-//     }
-//   }
-// }
-
-// function remaining(){
-//   const listContainer = document.getElementById("all-task");
-//   listContainer.innerHTML = "";
-//   for(let i=0; i<arrayList.length; i++)
-//   {
-//     if(arrayList[i].task !== undefined && arrayList[i].marked === false)
-//     {
-//       let li = document.createElement("li");
-//       li.innerHTML = arrayList[i].task;
-//       li.setAttribute("id" , `${arrayList[i].id}`);
-//       listContainer.appendChild(li);
-//     }
-//   }
-// }
-
-// function clearCompleted(){
-//   const listContainer = document.getElementById("all-task");
-//   listContainer.innerHTML = "";
-//   for(let i=0; i<arrayList.length; i++)
-//   {
-//     if(arrayList[i].marked)
-//     {
-//       delete arrayList[i];
-//     }
-//   }
-//   for(let i=0; i<arrayList.length; i++)
-//   {
-//     if(arrayList[i] !== undefined)
-//     {
-//       let li = document.createElement("li");
-//       li.innerHTML = arrayList[i].task;
-//       li.setAttribute("id" , `${arrayList[i].id}`);
-//       listContainer.appendChild(li);
-//     }
-//   }
-// }
-
-// function showAll(){
-//   taskAdd(2);
-// }
-
-
         }
       }
       li.remove();
     }
   }
   listContainer.addEventListener("click" , function(e){
-    e.target.style.color = "green";
+    e.target.style.backgroundColor = '#C0E49A';
     for(j=0; j<arrayList.length; j++)
       {
         //console.log(arrayList[j].id , Number(li.getAttribute("id")));
@@ -294,7 +166,7 @@ function allCompleted(){
       let li = document.createElement("li");
       li.innerHTML = arrayList[i].task;
       li.setAttribute("id" , `${arrayList[i].id}`);
-      li.style.color = "green";
+      li.style.backgroundColor = '#C0E49A';
       listContainer.appendChild(li);
     }
   }
