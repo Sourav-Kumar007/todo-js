@@ -65,15 +65,6 @@
 //                 }
 //     }
 // }
-
-
-const arrayList = [];
-const obj = {
-  id : Date.now(),
-  task : "dummy",
-  marked : true
-};
-
 // const e = Object.create(obj);
 // e.id = 1;
 // e.task = "sourav";
@@ -84,6 +75,15 @@ const obj = {
 // {
 //   console.log("You are right");
 // }
+
+
+const arrayList = [];
+const obj = {
+  id : Date.now(),
+  task : "dummy",
+  marked : true
+};
+
 
 document.querySelector('#input-box').addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
@@ -160,6 +160,34 @@ function taskAdd(f)
   });
   //console.log(arrayList);
 }
+
+document.querySelector('#btn1').addEventListener('click', (e)=> {
+  e.target.style.backgroundColor = "red";
+  document.querySelector('#btn2').style.backgroundColor = '#5c67f2';
+  document.querySelector('#btn3').style.backgroundColor = '#5c67f2';
+  document.querySelector('#btn4').style.backgroundColor = '#5c67f2';
+} );
+
+document.querySelector('#btn2').addEventListener('click', (e)=> {
+  e.target.style.backgroundColor = "red";
+  document.querySelector('#btn1').style.backgroundColor = '#5c67f2';
+  document.querySelector('#btn3').style.backgroundColor = '#5c67f2';
+  document.querySelector('#btn4').style.backgroundColor = '#5c67f2';
+} );
+
+document.querySelector('#btn3').addEventListener('click', (e)=> {
+  e.target.style.backgroundColor = "red";
+  document.querySelector('#btn1').style.backgroundColor = '#5c67f2';
+  document.querySelector('#btn2').style.backgroundColor = '#5c67f2';
+  document.querySelector('#btn4').style.backgroundColor = '#5c67f2';
+} );
+
+document.querySelector('#btn4').addEventListener('click', (e)=> {
+  e.target.style.backgroundColor = "red";
+  document.querySelector('#btn2').style.backgroundColor = '#5c67f2';
+  document.querySelector('#btn3').style.backgroundColor = '#5c67f2';
+  document.querySelector('#btn1').style.backgroundColor = '#5c67f2';
+} );
 
 function allCompleted(){
   const listContainer = document.getElementById("all-task");
