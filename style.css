@@ -1,61 +1,27 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+*{
+    margin : 0;
+    padding : 0;
 }
 
-body {
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.container{
+    width : 50%;
+    margin : 10px auto 15px;
 }
-
-.container {
-    margin-top:50px;
-    width: 45%;
-    background: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
+.heading{
+    margin-left:330px;
 }
-
-.heading {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+.input-task{
+    margin-top  : 20px;
+    max-width:100%;
 }
-
-.input-task {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+.take-input{
+    width:80%;
+    height: 30px;
 }
-
-.take-input {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.add-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #5c67f2;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.add-btn:hover {
-    background-color: #4a54e1;
+.add-btn{
+    padding:8px 22px;
+    border-radius:2px;
+    background-color: rgb(240, 192, 255);
 }
 
 .listTask {
@@ -65,6 +31,7 @@ body {
 }
 
 .listTask li {
+    max-width:86%;
     background: #fff;
     padding: 10px;
     margin-top: 8px;
@@ -80,9 +47,12 @@ body {
     background: #f9f9f9;
 }
 
-
-
+ul li button{
+   display:flex;
+   flex-direction: row;
+}
 #all-btn {
+    width:89%;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
@@ -102,11 +72,6 @@ body {
 #all-btn button:hover {
     background: #4a54e1;
 }
-
-#clear {
-    background: #ff4d4d;
-}
-
 #clear:hover {
     background: #e63939;
 }

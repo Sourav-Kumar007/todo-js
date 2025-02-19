@@ -85,6 +85,11 @@ const obj = {
 //   console.log("You are right");
 // }
 
+document.querySelector('#input-box').addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    taskAdd(1);
+  }
+});
 
 function taskAdd(f)
 {
