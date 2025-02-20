@@ -42,6 +42,16 @@
     border: 1px solid #ddd;
     transition: 0.3s;
 }
+.listTask li div{
+    width:12%;
+    display:flex;
+    justify-content: space-between;
+}
+.listTask li div button{
+
+    padding:5px;
+}
+
 
 .listTask li:hover {
     background: #f9f9f9;

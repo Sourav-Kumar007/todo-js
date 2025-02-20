@@ -111,33 +111,88 @@ function taskAdd(f) {
     }
 
     let li = document.createElement("li");
-    li.innerHTML = arrayList[i].task;
+    let text = document.createElement("div");
+    text.innerHTML = arrayList[i].task;
     li.setAttribute("id", `${arrayList[i].id}`);
     if (arrayList[i].marked) {
       li.style.backgroundColor = "#C0E49A";
     }
+    li.appendChild(text);
+
+    let btnContainer = document.createElement("div");
+
+    let editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.classList.add("editTask");
 
     let deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
-    li.appendChild(deleteBtn);
-    console.log(arrayList[i].task);
+    deleteBtn.classList.add("dltTask");
+    
+    btnContainer.appendChild(editBtn);
+    btnContainer.appendChild(deleteBtn);
+    li.appendChild(btnContainer);
     listContainer.appendChild(li);
 
-    li.querySelector("button").addEventListener("click", remove);
+    li.querySelector(".editTask").addEventListener("click" , edit);
+
+    li.querySelector(".dltTask").addEventListener("click", remove);
     function remove() {
-      for (j = 0; j < arrayList.length; j++) {
+      for (let j = 0; j < arrayList.length; j++) {
         //console.log(arrayList[j].id , Number(li.getAttribute("id")));
         if (
           arrayList[j] !== undefined &&
           arrayList[j].id === Number(li.getAttribute("id"))
-        ) {
+        ) { 
+          console.log('hey');
           delete arrayList[j];
           break;
         }
       }
       li.remove();
     }
+
+
+    function edit (){
+
+      const ID = li.getAttribute("id");
+      const btText=li.children[1].childNodes[0].innerText;
+      const pp=li.children[1];
+
+      if(btText==="Edit")
+      {
+        pp.childNodes[0].innerText="Save";
+        const inputText=document.createElement("input");
+        inputText.value=li.children[0].innerText;
+        li.innerHTML="";
+        inputText.classList.add("newTask");
+        li.appendChild(inputText);
+        li.appendChild(pp);
+        console.log(li);
+      }
+      else{
+
+        pp.childNodes[0].innerText="Edit";
+        let text = document.createElement("div");
+        text.innerText = li.children[0].value;
+        li.innerHTML="";
+        li.appendChild(text);
+        li.appendChild(pp);
+        for(let j=0; j<arrayList.length; j++)
+        {
+          if (
+            arrayList[j] !== undefined &&
+            arrayList[j].id === Number(li.getAttribute("id"))
+          ) {
+            arrayList[j].task = li.children[0].innerText;
+            break;
+          }
+        }
+      }
+    }
   }
+
+
   listContainer.addEventListener("click", function (e) {
     e.target.style.backgroundColor = "#C0E49A";
     for (j = 0; j < arrayList.length; j++) {
@@ -233,6 +288,8 @@ function allCompleted() {
       li.remove();
     }
   }
+
+  
 }
 
 function remaining() {
