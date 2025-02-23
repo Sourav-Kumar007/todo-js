@@ -110,8 +110,8 @@ function CommonToAll(buttonNum) {
 
   listContainer.addEventListener("click", function (e) {
     e.target.style.backgroundColor = "#C0E49A";
-    for (j = 0; j < arrayList.length; j++) {
-      //console.log(arrayList[j].id , Number(li.getAttribute("id")));
+    let flag = true;
+    for (let j = 0; j < arrayList.length; j++) {
       if (
         arrayList[j] !== undefined &&
         arrayList[j].id === Number(e.target.getAttribute("id"))
@@ -120,8 +120,25 @@ function CommonToAll(buttonNum) {
         break;
       }
     }
+    for(let j=0; j<arrayList.length; j++)
+    {
+      if(arrayList[j] !== undefined && arrayList[j].marked === false)
+      {
+        flag = false;
+        break;
+      }
+    }
+    let btn = document.getElementById('btn5');
+    if(flag)
+    {
+      btn.innerText = 'Unselect All';
+    }
+    else 
+    {
+      btn.innerText = 'Select All';
+    }
   });
-}
+};
 
 function taskAdd(f) {
   if (f == 1) {
@@ -145,6 +162,7 @@ document.querySelector("#btn1").addEventListener("click", (e) => {
   document.querySelector("#btn2").style.backgroundColor = "#5c67f2";
   document.querySelector("#btn3").style.backgroundColor = "#5c67f2";
   document.querySelector("#btn4").style.backgroundColor = "#5c67f2";
+  document.querySelector("#btn5").style.backgroundColor = "#5c67f2";
 });
 
 document.querySelector("#btn2").addEventListener("click", (e) => {
@@ -152,6 +170,7 @@ document.querySelector("#btn2").addEventListener("click", (e) => {
   document.querySelector("#btn1").style.backgroundColor = "#5c67f2";
   document.querySelector("#btn3").style.backgroundColor = "#5c67f2";
   document.querySelector("#btn4").style.backgroundColor = "#5c67f2";
+  document.querySelector("#btn5").style.backgroundColor = "#5c67f2";
 });
 
 document.querySelector("#btn3").addEventListener("click", (e) => {
@@ -159,6 +178,7 @@ document.querySelector("#btn3").addEventListener("click", (e) => {
   document.querySelector("#btn1").style.backgroundColor = "#5c67f2";
   document.querySelector("#btn2").style.backgroundColor = "#5c67f2";
   document.querySelector("#btn4").style.backgroundColor = "#5c67f2";
+  document.querySelector("#btn5").style.backgroundColor = "#5c67f2";
 });
 
 document.querySelector("#btn4").addEventListener("click", (e) => {
@@ -166,6 +186,15 @@ document.querySelector("#btn4").addEventListener("click", (e) => {
   document.querySelector("#btn2").style.backgroundColor = "#5c67f2";
   document.querySelector("#btn3").style.backgroundColor = "#5c67f2";
   document.querySelector("#btn1").style.backgroundColor = "#5c67f2";
+  document.querySelector("#btn5").style.backgroundColor = "#5c67f2";
+});
+
+document.querySelector("#btn5").addEventListener("click", (e) => {
+  e.target.style.backgroundColor = "red";
+  document.querySelector("#btn1").style.backgroundColor = "#5c67f2";
+  document.querySelector("#btn2").style.backgroundColor = "#5c67f2";
+  document.querySelector("#btn3").style.backgroundColor = "#5c67f2";
+  document.querySelector("#btn4").style.backgroundColor = "#5c67f2";
 });
 
 function allCompleted() {
@@ -181,14 +210,38 @@ function remaining() {
 }
 
 function clearCompleted() {
-  const listContainer = document.getElementById("all-task");
-  listContainer.innerHTML = "";
   for (let i = 0; i < arrayList.length; i++) {
     if (arrayList[i] !== undefined && arrayList[i].marked) {
       delete arrayList[i];
     }
   }
+  CommonToAll(1);
+}
 
+function selectAll(){
+  let btn = document.getElementById('btn5');
+  let flag = true;
+  if(btn.innerText === 'Select All')
+  {
+    btn.innerText = 'Unselect All';
+  }
+  else 
+  {
+    btn.innerText = 'Select All';
+    flag = false;
+  }
+  for (let i = 0; i < arrayList.length; i++) {
+    if (arrayList[i] !== undefined) {
+      if(flag)
+      {
+        arrayList[i].marked = true;
+      }
+      else 
+      {
+        arrayList[i].marked = false;
+      }
+    }
+  }
   CommonToAll(1);
 }
 
